@@ -38,7 +38,7 @@
 
 
 /* Desktop stylings */
-body {
+/* body {
   color: var(--color-text);
   background: var(--color-background);
   font-size: 1.125rem;
@@ -61,4 +61,4 @@ h3{
   font-family: var(--font-header);
   font-size: 2rem;
   font-weight: 400;
-}
+} */
