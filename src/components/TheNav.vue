@@ -26,6 +26,7 @@ import { RouterLink } from 'vue-router';
 
 <style scoped>
 nav ul{
+    display: none !important;
     background-color: grey;
     display: flex;
     justify-content: center;

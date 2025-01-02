@@ -3,21 +3,24 @@
 </script>
 
 <template>
+   <main>
     <header>
         <picture>
-            <img src="../assets/billeder/logodesktop.png" alt="">
-            <source srcset="../assets/billeder/logomobil.png" media="(max-width: 430px)">
-            <source srcset="../assets/billeder/logodesktop.png" media="(min-width: 1000px)">
+            <source srcset="../assets/billeder/logomobil.png" media="(max-width: 750px)">
+            <source srcset="../assets/billeder/logodesktop.png" media="(min-width: 750px)">
             <img src="../assets/billeder/logodesktop.png" alt="løkken bryghus loo">
         </picture>
+    <div>
+    <p>VI BRYGGER MED RESPEKT FOR HÅNDVÆRKET</p>
+    <p>FREDAG 12-19 LØRDAG 11-18</p>
+    <p>VRENSTEDVEJ 12</p>
+    </div>
     </header>
+   </main>
 </template>
 
 <style scoped>
-
-@media (max-width: 430px){
-    header{
-        background-image: url(../assets/billeder/);
-    }
+img{
+    background-color: red;
 }
 </style>
