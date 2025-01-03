@@ -23,7 +23,10 @@ onMounted(()=>{
             <div class="date">
                 <p>{{ event.acf.datedot }}</p>
             </div>
-            <img :src="event.acf.cardimgmobil" :alt="event.acf.titel">
+            <picture>
+                <source media="(min-width: 1000px)" :srcset="event.acf.cardimgdesktop">
+                <img :src="event.acf.cardimgmobil" :alt="event.acf.titel">
+            </picture>
             <div class="text">
                 <h3>{{event.acf.titel}}</h3>
                 <p>{{ event.acf.disclosuretekst }}</p>
@@ -41,7 +44,6 @@ section{
 }
 .card{
     background-color: var(--primary);
-    display: inline-block;
     color: white;
     position: relative;
     border-radius: 6px;
@@ -56,6 +58,7 @@ section{
     padding: 16px 0px 16px 16px;
     width: 40ch;
 }
+
 .date{
     top: 10px;
     left: 10px;
@@ -68,5 +71,24 @@ section{
     position: absolute;
     background-color: var(--CTA);
 }
+
+@media (min-width: 1000px){
+    section{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 30px;
+    }
+}
+
+@media (min-width: 1920px){
+    section{
+        grid-template-columns: repeat(4,1fr);
+        max-width: 1600px;
+    }
+}
+
 
 </style>

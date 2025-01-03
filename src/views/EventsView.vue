@@ -5,8 +5,5 @@ import EventList from '@/components/EventsList.vue';
 <template>
     <EventList></EventList>
 </template>
-
-
-
 <style scoped>
 </style>
