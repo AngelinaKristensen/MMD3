@@ -19,15 +19,22 @@ onMounted(()=>{
 
 <template>
     <section>
-            <article v-for="beer in beers" :key="beer.id">
+        <article v-for="beer in beers">
+               <a :href="'/#/Beer?id=' + beer.id">
                 <img :src="beer.acf.cardimg" :alt="beer.acf.titel">
                 <p>{{ beer.acf.titel }}</p>
                 <p>{{ beer.acf.type }}</p>
+               </a>
             </article>
-         </section>
+    </section>
 </template>
 
 <style scoped>
+
+section a{
+    text-decoration: none;
+    color: black;
+}
 section{
     display: flex;
     flex-direction: column;

@@ -1,14 +1,23 @@
 <script setup>
+import { ref, onMounted } from 'vue';
+
+import { getQueryParameter, getPost } from '../assets/js/app.js';
+let id = getQueryParameter();
+// let beerinfo = ref(null);
+// getPost(id).then(data=> beerinfo = data);
 
 </script>
 
 <template>
     <main>
         <section class="sec">
-            <img src="../assets/billeder/BadenymfenWithBeer 2.png" alt="" class="beercenter">
+            <picture>
+                <source srcset="" media="(min-width: 1001px)">
+                <img src="" alt="">
+            </picture>
             <article class="boxmargin">
                 <div>
-                    <h1>Badenymfen</h1>
+                    <h1></h1>
                     <h3>Fruit Beer</h3>
                     <p class="text">Badenymfen er brygget med valle fra Ingstrup mejeri. Et overskud fra osteproduktion. Den er let og sommerlig.</p>
                 </div>
@@ -16,27 +25,27 @@
                     <hr class="line">
                     <div class="info">
                        <div class="icon"> <img src="../assets/billeder/type.svg" alt=""></div>
-                       <p>Type: Frugt Øl</p>
+                       <p>Type:</p>
                     </div>
                     <hr class="line">
                     <div class="info">
-                       <div class="icon"> <img src="../assets/billeder/type.svg" alt=""></div>
-                       <p>Type: Frugt Øl</p>
+                       <div class="icon"> <img src="../assets/billeder/alkoprocent.svg" alt=""></div>
+                       <p>Alkoholprocent:</p>
                     </div>
                     <hr class="line">
                     <div class="info">
-                       <div class="icon"> <img src="../assets/billeder/type.svg" alt=""></div>
-                       <p>Type: Frugt Øl</p>
+                       <div class="icon"> <img src="../assets/billeder/ibu.svg" alt=""></div>
+                       <p>IBU:</p>
                     </div>
                     <hr class="line">
                     <div class="info">
-                       <div class="icon"> <img src="../assets/billeder/type.svg" alt=""></div>
-                       <p>Type: Frugt Øl</p>
+                       <div class="icon"> <img src="../assets/billeder/ebc.svg" alt=""></div>
+                       <p>EBC:</p>
                     </div>
                     <hr class="line">
                     <div class="info">
-                       <div class="icon"> <img src="../assets/billeder/type.svg" alt=""></div>
-                       <p>Type: Frugt Øl</p>
+                       <div class="icon"> <img src="../assets/billeder/size.svg" alt=""></div>
+                       <p>Fås som:</p>
                     </div>
                     <hr class="line">
                 </div>
