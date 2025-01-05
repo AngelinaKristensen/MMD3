@@ -19,12 +19,19 @@ function getEvents(id){
     .catch(err=>console.log(err))
 }
 
+function removeId(){
+    let url = window.location.href;
+    let newUrl = url.split('?')[0];
+    window.history.pushState("", document.title, newUrl);
+}
+
 onMounted(()=>{
     getEvents(27);
     let xcon = document.querySelector("i");
     overlay = document.querySelector(".overlay");
     xcon.addEventListener("click",function(){
         overlay.style.display = "none"
+        removeId();
     })
 
 })
@@ -64,14 +71,20 @@ const click = () => {
         <div class="modal">
         <div class="close"> <i class="fa-solid fa-x"></i></div>
         <div class="content">
-        <img src="../assets/billeder/Rectangle 76.png" alt="">
+            <picture>
+                <source media="(min-width: 1000px)" :srcset="currentEvent.acf.begivenhedimgdesktop">
+                <img :src="currentEvent.acf.begivenhedimgmobil" :alt="currentEvent.acf.titel">
+            </picture>
         <h2> {{ currentEvent.acf.titel }}</h2>
         <div class="logotext">
-            <p>Voergaard 6, 9330 Flauenskjold</p>
-            <img src="../assets/billeder/location-dot-solid (1).svg" alt="">
+            <img src="../assets/billeder/location.svg" alt="">
+            <p>{{ currentEvent.acf.lokation }}</p>
         </div>
-        <p>Fredag 22. november, kl. 10.00 -16.00</p>
-        <p>Voergaard julemarked afholder årligt et julemarked på Voergaard Slot, som også bliver kaldet for Jul på Slottet. Der er skønhed, god julestemning, underholdning og mad til gæsterne. Det er også et oplagt sted at finde en julegave til sine nærmeste.</p>
+        <div class="logotext">
+            <img src="../assets/billeder/tidspunkt.svg" alt>
+            <p>{{ currentEvent.acf.tidspunkt }}</p>
+        </div>
+        <p>{{ currentEvent.acf.beskrivelse }}</p>
         </div>
         </div>
     </div>
@@ -128,8 +141,23 @@ section{
     color: white;
     width: 80%;
     background-color: var(--primary);
+    padding-bottom: 20px;
 }
 
+@media (min-width: 1000px){
+    .modal{
+        max-width: 700px;
+        max-height: 90vh;
+        height: auto;
+        overflow-y: auto;
+    }
+    .close i:hover{
+        scale: 1.3;
+    }
+    .close i {
+        transition: 100ms;
+    }
+}
 .overlay{
     display: none;
     position: fixed;  
@@ -139,6 +167,9 @@ section{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
+}
+.overlay h2{
+    padding-top: 10px;
 }
 
 .content{
@@ -158,6 +189,34 @@ section{
     font-size: 25px;
 }
 
+.logotext{
+    display: flex;
+    justify-content: start; 
+    align-items: center;
+    gap: 8px;
+}
+
+.logotext img{
+    width: 30px;
+}
+
+
+.logotext:last-of-type {
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+.logotext:first-of-type{
+    padding-top: 15px;
+}
+
+.opleve p {
+    padding-bottom: 8px;
+}
+
+.opleve p:first-of-type{
+    padding-top: 8px;
+}
 
 @media (min-width: 1000px){
     section{
