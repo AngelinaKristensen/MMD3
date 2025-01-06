@@ -50,8 +50,15 @@ const showRest = () => {
                 <p>Her finder du alle vores øl og gavekasser. Vi hjælper altid med at finde den perfekte gave eller hvordan du kan blande den bedste smagskasse, hvis der skal hygges sammen med venner og familie.</p>
             </article>
             <article class="grid2">
-            <img src="../assets/billeder/Brewshop1.png" alt="">
-            <img src="../assets/billeder/Brewshop2.png" alt="">
+    <picture>
+        <source media="(min-width: 1000px)" srcset="../assets/billeder/BrewshopDesktop2.png">
+        <img src="../assets/billeder/Brewshop1.png" alt="">
+    </picture>
+    <picture>
+        <source media="(min-width: 1000px)" srcset="../assets/billeder/BrewshopDesktop1.png">
+        <img src="../assets/billeder/Brewshop2.png" alt="">
+    </picture>
+           
         </article>
         </div>
     </section>
@@ -60,7 +67,9 @@ const showRest = () => {
 <style scoped>
 
 .grid2{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     margin: 0 auto;
 }
 
@@ -87,6 +96,12 @@ header{
 }
 
 @media (min-width: 1000px) {
+
+    .grid2{
+        justify-content: center;
+        flex-direction: unset;
+        gap: 3.6rem;
+    }
     header {
         background-image: url(../assets/billeder/headerdesktop.png);
     }
@@ -96,7 +111,7 @@ header{
 
 .welcome{
     margin: 0 auto;
-    max-width: 1075px;;
+    max-width: 1100px;;
 }
 .welcome p {
     width: 132ch;
