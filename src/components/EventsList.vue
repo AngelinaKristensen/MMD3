@@ -40,13 +40,9 @@ const click = () => {
    setTimeout(()=>{
     id.value = getQueryParameter();
     currentEvent.value = events.value.find(event=> event.id === parseInt(id.value));
-    console.log('currentEvent:', currentEvent.value)
     overlay.style.display = "block"
    },400)
 }
-
-
-
 </script>
 
 <template>
@@ -72,7 +68,7 @@ const click = () => {
         <div class="close"> <i class="fa-solid fa-x"></i></div>
         <div class="content">
             <picture>
-                <source media="(min-width: 1000px)" :srcset="currentEvent.acf.begivenhedimgdesktop">
+                <source media="(min-width: 1000px)" :srcset="currentEvent.acf.begivenhedimgdesktop" class="imgdesktop">
                 <img :src="currentEvent.acf.begivenhedimgmobil" :alt="currentEvent.acf.titel">
             </picture>
         <h2> {{ currentEvent.acf.titel }}</h2>
@@ -84,7 +80,7 @@ const click = () => {
             <img src="../assets/billeder/tidspunkt.svg" alt>
             <p>{{ currentEvent.acf.tidspunkt }}</p>
         </div>
-        <p>{{ currentEvent.acf.beskrivelse }}</p>
+        <p class="summary">{{ currentEvent.acf.beskrivelse }}</p>
         </div>
         </div>
     </div>
@@ -146,6 +142,7 @@ section{
 
 @media (min-width: 1000px){
     .modal{
+        top: 5px;
         max-width: 700px;
         max-height: 90vh;
         height: auto;
@@ -156,6 +153,12 @@ section{
     }
     .close i {
         transition: 100ms;
+    }
+    .modal img{
+        width: 500px;
+    }
+    .summary{
+        width: 75ch;
     }
 }
 .overlay{

@@ -50,6 +50,12 @@ section{
         max-width: 1150px;
         margin: 0 auto;
     }
+    article:hover{
+        scale: 1.1;
+    }
+    article{
+        transition: 500ms;
+    }
 }
 
 p{
