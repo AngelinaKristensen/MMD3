@@ -183,7 +183,6 @@ const currentStep = ref(0);
 }
 
 
-
 @media (min-width: 1000px) {
   .timeline {
     max-width: 1200px; 
@@ -203,7 +202,7 @@ const currentStep = ref(0);
     flex-direction: row; 
   }
 
-  /* Circles */
+  /* Circles til ikoner */
   .circle {
     position: absolute;
     left: 50%; 

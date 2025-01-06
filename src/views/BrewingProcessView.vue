@@ -38,7 +38,7 @@ main{
 }
 
 .brygIntro h1{
-    padding-bottom: var(--spacing-small);
+    padding-bottom: 1rem;
     padding-top: var(--spacing-small);
 }
 

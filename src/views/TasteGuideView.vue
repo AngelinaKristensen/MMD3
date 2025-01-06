@@ -78,12 +78,14 @@
 /* Intro Section */
 
 main{
-    padding-left: var(--spacing-large);
-    padding-right: var(--spacing-large);
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0; 
+
 }
 .madSectionIntro {
-  background-color: var(--primary); /* Keeps the background color */
-  color: var(--light); /* Keeps the text color */
+  background-color: var(--primary); 
+  color: var(--light); 
   width: 100vw; /* Makes the background span the full viewport width */
   margin-left: calc(-50vw + 50%); /* Aligns the background with the viewport edges */
   padding: 40px 0; /* Vertical padding for the section */

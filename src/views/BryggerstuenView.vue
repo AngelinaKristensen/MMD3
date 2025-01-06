@@ -126,7 +126,7 @@ article {
 /*------------ snackmenu END ---------------*/
 
 ul li {
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
 }
@@ -136,7 +136,6 @@ ul li {
 @media (min-width: 1000px) {
   main {
     flex-direction: column; 
-    gap: 2rem;
   }
 
   section {
@@ -158,7 +157,7 @@ ul li {
 
   
   img {
-    max-height: 70vh;
+    max-height: 80vh;
     max-width: 90%; 
   }
 
@@ -176,11 +175,9 @@ ul li {
 
 @media (min-width: 1500px) {
   main {
-    
-  max-width: 1200px; /* Adjust this to your preferred width */
-  margin: 0 auto; /* Centers the timeline */
-  padding: 0; /* Remove padding that disrupts spacing */
-
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0; 
   }
 
   .bryggestuenImage {
@@ -202,15 +199,6 @@ ul li {
 
   article {
     flex: 1;
-  }
-
-  section.snackMenu {
-    flex-direction: column; 
-  }
-
-  .snackMenu {
-    margin: auto;
-    max-width: auto;
   }
 
 }

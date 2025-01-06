@@ -41,8 +41,10 @@ import visionICON from '@/assets/Icons/Values.svg';
 <style scoped>
 
 main{
-    padding-left: var(--spacing-large);
-    padding-right: var(--spacing-large);
+  max-width: 1200px; /* Adjust this to your preferred width */
+  margin: 0 auto; /* Centers the timeline */
+  padding: 0; /* Remove padding that disrupts spacing */
+
 }
 section {
   padding-bottom: var(--spacing-medium);
