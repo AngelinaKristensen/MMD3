@@ -1,25 +1,26 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-let baseurl = "https://0x.mohafh.dk/wp-json/wp/v2/posts?";
+import { ref, onMounted} from 'vue';
+import {getCategory } from '../assets/js/app.js';
+
 const beers = ref([]);
 
-//Fetch call hvor vi henter vores øl fra wordpress.
-function getBeers(id){
-    fetch(baseurl+`categories=${id}&per_page=100`)
-    .then(res=>res.json())
-    .then(data => {
-        beers.value = data
-    })
-    .catch(err=>console.log(err))
-}
+const props = defineProps({
+    amountToSHow:{
+        type: Number,
+        default: 12
+    }
+   
+});
+
 onMounted(()=>{
-    getBeers(26);
+    getCategory(26)
+    .then(data=> beers.value = data)
 })
 </script>
 
 <template>
     <section>
-        <article v-for="beer in beers">
+        <article v-for="beer in beers.slice(0,props.amountToSHow)">
                <a :href="'/#/Beer?id=' + beer.id">
                 <img :src="beer.acf.cardimg" :alt="beer.acf.titel">
                 <p>{{ beer.acf.titel }}</p>

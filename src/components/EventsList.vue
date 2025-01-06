@@ -1,32 +1,21 @@
 <script setup>
 import { ref, onMounted} from 'vue';
-import { getQueryParameter} from '../assets/js/app.js';
+import { getQueryParameter, getCategory} from '../assets/js/app.js';
 
-let baseurl = "https://0x.mohafh.dk/wp-json/wp/v2/posts?";
 const events = ref([]);
 let id = ref(null);
 let currentEvent = ref({acf:{}});
 let overlay;
 
-
-//Fetch call hvor vi henter vores øl fra wordpress.
-function getEvents(id){
-    fetch(baseurl+`categories=${id}&per_page=100`)
-    .then(res=>res.json())
-    .then(data => {
-        events.value = data
-    })
-    .catch(err=>console.log(err))
-}
-
 function removeId(){
     let url = window.location.href;
     let newUrl = url.split('?')[0];
-    window.history.pushState("", document.title, newUrl);
+    window.history.pushState(history.state, document.title, newUrl);
 }
 
 onMounted(()=>{
-    getEvents(27);
+    getCategory(27)
+    .then(data=> events.value = data)
     let xcon = document.querySelector("i");
     overlay = document.querySelector(".overlay");
     xcon.addEventListener("click",function(){

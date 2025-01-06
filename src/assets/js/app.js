@@ -7,6 +7,13 @@ export function getPost(id){
     .catch(err=> console.log(err))
 }
 
+export function getCategory(id){
+    return fetch(baseurl+`?categories=${id}&per_page=100`)
+    .then(res=>res.json())
+    .then(data => data)
+    .catch(err=>console.log(err))
+}
+
 export function getQueryParameter(){
     let hash = window.location.hash;
     let queryString = hash.split("?")[1];
