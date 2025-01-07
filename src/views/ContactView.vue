@@ -1,9 +1,45 @@
 <script setup>
+import { ref} from 'vue';
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phonenumberPattern = /^\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/;
+let email = ref("")
+let name = ref("")
+let message = ref("")
+let phoneNumber = ref("")
+let subject = ref("")
+
+function checkForm(){
+    let checker = true
+    if(name.value.length<2){
+        alert("Navnet skal udfyldes.");
+        checker = false;
+    }
+    if(!emailPattern.test(email.value)){
+        alert("Email er ikke udfyldt eller den er ikke gyldig.");
+        checker = false;
+    }
+    if(!phonenumberPattern.test(phoneNumber.value)){
+        alert("Telefonnummer er ikke udfyldt eller det er ikke gyldig."); 
+        checker = false;
+    }
+    if(subject.value.length<1){
+        alert("Emnet er ikke udfyldt.");
+        checker = false;
+    }
+    if(message.value.length<1){
+        alert("Beskeden er ikke udfyldt"); 
+        checker = false;
+    }
+    if(checker){
+
+    }
+}
 
 </script>
 
 <template>
-    <main>
+    <body>
+        <main>
         <section class="gridwrap">
             <article class="placeinfo">
                 <picture>
@@ -47,35 +83,46 @@
                 <h2>Skriv til os</h2>
                 <div class="inputfield">
                     <label for="firstname"></label>
-                    <input type="text" name="firstname" id="firstname" placeholder="Dit navn">
+                    <input type="text" name="firstname" id="firstname" placeholder="Dit navn" required v-model="name">
+                    <p v-if="name.length<2" class="red">Ikke udfyldt endnu</p>
+                    <p v-else class="green">Udfyldt</p>
                 </div>
                 <div class="inputfield">
                     <label for="email"></label>
-                    <input type="email" name="email" id="email" placeholder="Din e-mail">
+                    <input type="email" name="email" id="email" placeholder="Din e-mail" required v-model="email">
+                    <p v-if="!emailPattern.test(email)" class="red">Ikke udfyldt endnu eller ugyldig mail</p>
+                    <p v-else class="green">Udfyldt og gyldig mail</p>
                 </div>
                 <div class="inputfield">
                     <label for="phone"></label>
-                    <input type="text" name="email" id="email" placeholder="Din e-mail">
+                    <input type="text" name="phone" id="phone" placeholder="Dit telefonnummer" required v-model="phoneNumber">
+                    <p v-if="!phonenumberPattern.test(phoneNumber)" class="red">Ugyldig telefonnummer</p>
+                    <p v-else class="green">Udfyldt og gyldig telefon</p>
                 </div>
                 <div class="inputfield">
                     <label for="subject"></label>
-                    <input type="text" name="subject" id="subject" placeholder="Emne">
+                    <input type="text" name="subject" id="subject" placeholder="Emne" required v-model="subject">
+                    <p v-if="subject.length<1" class="red">Ikke udfyldt endnu</p>
+                    <p v-else class="green">Udfyldt</p>
                 </div>
                 <div class="inputfield">
                     <label for="message"></label>
-                    <textarea name="message" id="message" rows="15" placeholder="Din besked"></textarea>
+                    <textarea name="message" id="message" rows="15" placeholder="Din besked" required v-model="message"></textarea>
+                    <p v-if="message.length<1" class="red">Ikke udfyldt endnu</p>
+                    <p v-else class="green">Udfyldt</p>
                 </div>
                 <div>
-                <button>Send</button>
-            </div>
+                    <button @click="checkForm">Send</button>
+                </div>
             </div>
         </section>
     </main>
+    </body>
 </template>
 
 <style scoped>
 .inputfield{
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 input,textarea{
     width: 100%;
@@ -91,8 +138,10 @@ iframe{
     width: 100%;
     height: 268px;
 }
-section{
+main{
     background-color: var(--primary);
+}
+section{
     color: white;
     padding: 0px 24px;
 }
@@ -110,14 +159,23 @@ section{
     gap: 6px;
 }
 
+.red{
+    color: #FF6F6F;
+    padding-left: 3px;
+}
+
+.green{
+    color: #A8E06A;
+    padding-left: 3px;
+}
+
 @media (min-width: 1000px){
     section{
         padding: 0px;
         display: grid;
         grid-template-columns: repeat(3,1fr);
-        grid-template-rows: 300px;
+        grid-template-rows: 370px;
         column-gap: 3rem;
-        row-gap: 1rem;
         max-width: 1300px;
         justify-content: center;
         margin: 0 auto;
