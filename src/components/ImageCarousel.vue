@@ -48,36 +48,36 @@ const prevImage = () => {
 </template>
 
 <style scoped>
-
 .carousel {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  height: 300px; /* Adjust as needed */
+  width: 100%; /* Sætter bredde på carousel */
+  height: 250px; /* Sætter højden på carousel */
   display: flex;
   align-items: center;
-  justify-content: center; /* Centers the images between the buttons */
+  justify-content: center; /* gør sådan at billeder er centeret mellem knapperne */
+  margin-bottom: 20px; 
 }
 
 .carousel-wrapper {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 100%; /* Default: 1 image visible (mobile) */
+  grid-auto-columns: 100%; /* */
   transition: transform 0.3s ease-in-out;
-  width: 90%; /* Leave space for buttons on the sides */
+  width: 90%; /* 90% for at der er plads til knapperne i siden */
+  
 }
 
 .carousel-image {
   height: 100%;
-  display: flex; /* Ensures the images are centered */
-  justify-content: center;
-  align-items: center;
+  display: flex; 
+  justify-content: center; /* sikre at billederne er centered */
 }
 
 .carousel-image img {
   max-width: 100%;
   height: auto;
-  object-fit: contain; /* Ensures images fit nicely within the container */
+  object-fit: contain; /* Sørger for at billederne bliver contained i deres parent object. */
 }
 
 /*---------------- CAROUSEL CONTROLS START----------- */
@@ -107,7 +107,7 @@ const prevImage = () => {
 @media (min-width: 1000px) {
   .carousel-wrapper {
     grid-auto-columns: 33.333%; /* Display 3 images */
-    gap: 0.5rem; /* Add spacing between images */
+    gap: 0.5rem; /* tilføj spacing between images */
   }
 }
 </style>

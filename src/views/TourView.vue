@@ -26,9 +26,9 @@ const tours = [
 
 <template>
 <main>
-    <h1>RUNDVISNING</h1>
+   
     <section class="tourIntro">
-
+        <h1>RUNDVISNING</h1>
         <article class="tourIntroContent">
             <p>På Løkken Bryghus inviterer vi vores gæster med in på en spændende rejse gennem øllets univers.  Vi bringer en oplevelse som både underholder og oplyser.</p>
             <p>Vi kombinerer vores rundvisning med spændende indblik i bryggekunsten med sjove og medrivende fortællinger, hvor vi præsenterer vores øl, holder smagning og foredrag omkring ølbrygning, her går vi i dyben med de forskellige stilarter.</p>
@@ -56,6 +56,7 @@ const tours = [
     </section>
 
     <section>
+        
         <Carousel/>
     </section>
 </main>
@@ -65,11 +66,16 @@ const tours = [
 <style scoped>
 
 main{
-    max-width: 1200px; /* Adjust this to your preferred width */
-    margin: 0 auto; /* Centers the timeline */
-    padding: 0; /* Remove padding that disrupts spacing */
-
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 var(--spacing-large); 
 }
+
+.tourIntro h1{
+    padding-bottom: 1rem;
+    padding-top: var(--spacing-small);
+}
+
 
 article{
    padding-bottom: var(--spacing-small);

@@ -1,5 +1,6 @@
 <script setup>
 import timeline from '@/components/timelineComponent.vue'
+import backToTopBTN from '@/components/backToTopBTN.vue'
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import timeline from '@/components/timelineComponent.vue'
             </div>
         </section>
         <timeline />
+        <backToTopBTN/>
     </main>
 
 </template>
@@ -19,8 +21,9 @@ import timeline from '@/components/timelineComponent.vue'
 <style scoped>
 
 main{
-    padding-left: var(--spacing-large);
-    padding-right: var(--spacing-large);
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 var(--spacing-large); 
 }
 
 .brygIntro {

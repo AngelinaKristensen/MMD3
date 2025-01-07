@@ -80,22 +80,26 @@
 main{
   max-width: 1200px; 
   margin: 0 auto; 
-  padding: 0; 
-
+  padding: 0 var(--spacing-large); 
 }
+
 .madSectionIntro {
   background-color: var(--primary); 
   color: var(--light); 
-  width: 100vw; /* Makes the background span the full viewport width */
-  margin-left: calc(-50vw + 50%); /* Aligns the background with the viewport edges */
-  padding: 40px 0; /* Vertical padding for the section */
+  width: 100vw; /* Gør sådan at den røde background går fullwidth */
+  margin-left: calc(-50vw + 50%); /* Sikre at sektioner aligner indenfor viewport. */
+  padding: 40px 0; 
 }
 
 .madOgSmagcontentContainer {
-  max-width: 1200px; /* Limit the content width */
-  margin: 0 auto; /* Centers the content */
-  padding: 0 var(--spacing-large); /* Adds horizontal padding to align with main content */
-  box-sizing: border-box; /* Ensures padding is part of the total width */
+  max-width: 1200px; /* sikre at content bliver inden for denne width når den går i mobile */
+  margin: 0 auto; /* Centrerer indhold */
+  padding: 0 var(--spacing-large); 
+}
+
+.madOgSmagcontentContainer h1{
+    padding-bottom: 1rem;
+    padding-top: var(--spacing-small);
 }
 
 /* Section Styles */
@@ -113,18 +117,8 @@ main{
 
 /*------------ MEDIA QUERY START ---------------*/
 @media (min-width: 1000px) {
-  .sectionWithImage {
-    grid-template-columns: 1fr 1fr; 
-    gap: 1rem;
-  }
 
-  .tasteGuideImage img {
-    justify-self: center;
-    align-self: center;
-  }
-}
-
-@media (min-width: 1500px) {
+  
   .sectionWithImage {
     grid-template-columns: 1fr 1fr; 
     gap: 1rem;

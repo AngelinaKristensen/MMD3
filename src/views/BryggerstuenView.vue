@@ -29,7 +29,7 @@ const smorrebrodItems = [
         </article>
         
         <div class="bryggestuenImage">
-          <img src="../assets/billeder/Bryggestuen.png" alt="Bryggerstuen image" />
+          <img src="@/assets/billeder/Bryggestuen.png" alt="Bryggerstuen image" />
         </div>
     </section>
 
@@ -56,7 +56,7 @@ const smorrebrodItems = [
         </article>
         
         <div class="bryggestuenImage">
-          <img src="../assets/billeder/Smørbrød.png" alt="Smørbrød" />
+          <img src="@/assets/billeder/Smørbrød.png" alt="Smørbrød" />
         </div>
     </section>
 
@@ -66,12 +66,14 @@ const smorrebrodItems = [
 <style scoped>
 
 main{
- 
-  max-width: 1200px; /* Adjust this to your preferred width */
-  margin: 0 auto; /* Centers the timeline */
-  padding: 0; /* Remove padding that disrupts spacing */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 var(--spacing-large); 
+}
 
-  
+.bryggeStuenIntro h1{
+    padding-bottom: 1rem;
+    padding-top: var(--spacing-small);
 }
 
 .bryggeStuenIntro p{

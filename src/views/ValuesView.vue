@@ -6,7 +6,7 @@ import visionICON from '@/assets/Icons/Values.svg';
 
 <template>
 <main>
-    <section>
+    <section class="valuesIntro">
     <h1>VORES VÆRDIER</h1>
     <div class="valueIcons">
         <!-- binder imported icons til source med v:bind shortkey -->
@@ -41,11 +41,16 @@ import visionICON from '@/assets/Icons/Values.svg';
 <style scoped>
 
 main{
-  max-width: 1200px; /* Adjust this to your preferred width */
-  margin: 0 auto; /* Centers the timeline */
-  padding: 0; /* Remove padding that disrupts spacing */
-
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 var(--spacing-large); 
 }
+
+.valuesIntro h1{
+    padding-bottom: 1rem;
+    padding-top: var(--spacing-small);
+}
+
 section {
   padding-bottom: var(--spacing-medium);
 }

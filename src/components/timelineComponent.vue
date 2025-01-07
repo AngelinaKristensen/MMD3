@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount} from 'vue';
 
 const steps = ref([
 {
@@ -91,25 +91,52 @@ const steps = ref([
 
 const currentStep = ref(0);
 
+const visibleSteps = ref([]); // Empty array som holder styr på hvilke steps er synlige - når de bliver synlige bliver de tilføjet til array
+
+// Intersection Observer
+let observer = null; // Null for at den ikke reagerer på noget med det samme
+
+//Vue onMounted Hook som køres når component bliver tilføjet til DOM. (kører kun når component er blevet initialiseret)
+onMounted(() => {
+  observer = new IntersectionObserver( //inersectionObserver er en funktion som fortæller når et Element træder ind eller ud af DOM 
+    (entries) => {  
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.dataset.index); //parseint til at konvertere værdi fra HTML(streng) til et heltal 
+        if (entry.isIntersecting && !visibleSteps.value.includes(index)) {
+          visibleSteps.value.push(index); // if statement som siger: Når entry.isinteracting er true tjekker den i index og ser om element allerede er synligt. hvis det ikke er bliver det tilføjet til visiblesteps array
+        }
+      });
+    },
+    {
+      threshold: 0.2, // Threshold for hvor meget et element skal være in screen før den bliver synlig. 20%
+    }
+  );
+
+  // Finder alle elementer i timeeline.item og tilføjer dem til observeren.
+  const items = document.querySelectorAll(".timeline-item");
+  items.forEach((item) => observer.observe(item));
+});
+
+//
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
+});
 </script>
 
 <template>
     <div class="timeline">
-      <!-- Continuous Line -->
+      <!-- Timeline Linje -->
       <div class="line"></div>
       
       <!-- Timeline Items -->
-      <div
-        v-for="(step, index) in steps"
+      <div v-for="(step, index) in steps"
         :key="index"
-        class="timeline-item"
+        :data-index="index"
+        class="timeline-item" :class="{ visible: visibleSteps.includes(index) }"
       >
-        <!-- Circle -->
-        <div class="circle" :class="{ 'active': index === currentStep }">
-          {{ index + 1 }}
-        </div>
+      <div class="circle">{{ index + 1 }}</div>
         
-        <!-- Content -->
+        <!-- Indhold -->
         <div class="content">
           <h3>{{ step.title }}</h3>
           <p v-for="(paragraph, pIndex) in step.description.split('\n\n')" :key="pIndex">
@@ -130,22 +157,29 @@ const currentStep = ref(0);
   max-width: auto;
 }
 
-/* Timeline Item */
 .timeline-item {
   display: flex;
   position: relative;
   margin-bottom: 2.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px); 
+  transition: all 0.6s ease-out; 
 }
 
-/* Circle */
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
 .circle {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   background-color: #f4a261; 
   display: flex;
-  align-items: center; /* For at centerer verticalt */
-  justify-content: center; /* For at centerer horisontalt */
+  align-items: center; 
+  justify-content: center; 
   font-size: 2rem;
   font-weight: bold;
   color: var(--light);
@@ -158,11 +192,11 @@ const currentStep = ref(0);
   width: 3px;
   height: calc(88% + 1.5rem); 
   background-color: #f4a261;
-  left: 2.4rem; /* Center of circle */
+  left: 2.4rem; /* Center af cirklen roughly */
   z-index: 0;
 }
 
-/* Step indhold */
+/* ---------Step indhold START ---------*/
 .content {
   background-color: var(--primary); 
   color: var(--light); 
@@ -172,7 +206,6 @@ const currentStep = ref(0);
   position: relative;
 }
 
-
 .content p {
   margin-bottom: 1rem; /* laver space mellem title og content på card. */
   line-height: 1.6; 
@@ -181,7 +214,7 @@ const currentStep = ref(0);
 .content h3{
   padding-bottom: 1rem;
 }
-
+/* ---------Step indhold END ---------*/
 
 @media (min-width: 1000px) {
   .timeline {
@@ -209,20 +242,21 @@ const currentStep = ref(0);
     transform: translateX(-50%);
   }
 
-  /* Content for Odd Items (Left Side) */
+  /* Indhold til Odd Items (Venstre) */
   .timeline-item:nth-child(even) .content {
     margin-left: 0;
     margin-right: auto;
-    max-width: 40%; /* Restrict content width */
+    max-width: 40%; 
   }
 
-  /* Content for Even Items (Right Side) */
+  /* Indhold til Even Items (Højre) */
   .timeline-item:nth-child(odd) .content {
     margin-left: auto;
     margin-right: 0;
-    max-width: 40%; /* Restrict content width */
-    text-align: left; /* Align text to the left */
+    max-width: 40%; 
+    text-align: left; 
   }
+
 }
 </style>
 
