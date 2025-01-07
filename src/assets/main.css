@@ -36,6 +36,16 @@
   font-weight: normal;
 }
 
+body{
+  background-color: var(--primary);
+}
+
+@media (min-width: 1000px){
+  body{
+    overflow-y: hidden;
+  }
+}
+
 /* Desktop stylings */
 /* body {
   color: var(--color-text);

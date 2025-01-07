@@ -31,15 +31,19 @@ function checkForm(){
         checker = false;
     }
     if(checker){
-
+        let icon = document.querySelector("#paperplane");
+        icon.classList.remove("hide")
+        icon.classList.add("fly");
     }
 }
 
 </script>
 
 <template>
-    <body>
         <main>
+            <div class="confirm confirmshow">
+                <p>Du har nu skevet til os!</p>
+            </div>
         <section class="gridwrap">
             <article class="placeinfo">
                 <picture>
@@ -117,10 +121,18 @@ function checkForm(){
             </div>
         </section>
     </main>
-    </body>
+    <i class="fa-solid fa-paper-plane hide fly" id="paperplane"></i>
 </template>
 
 <style scoped>
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
 .inputfield{
     margin-bottom: 12px;
 }
@@ -208,5 +220,39 @@ section{
         grid-column: 2;
         grid-row: 1;
     }
+
+.fly{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 35px;
+        color: blue;
+        rotate: 20deg;
+        animation: paperplane 4.5s ease-in-out forwards;
 }
+
+.confirm{
+    background-color: green;
+    border-radius: 8px;
+    position: fixed;
+    right: -300px;
+    transition: right 5s ease-out;
+    display: none;
+}
+.confirmshow{
+    right: 20px;
+    display: block;
+}
+}
+
+@keyframes paperplane {
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(100vw, -205vh);
+    }
+}
+
+
 </style>
