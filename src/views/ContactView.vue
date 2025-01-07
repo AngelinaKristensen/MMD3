@@ -34,6 +34,8 @@ function checkForm(){
         let icon = document.querySelector("#paperplane");
         icon.classList.remove("hide")
         icon.classList.add("fly");
+        let confirmElement = document.querySelector(".confirm");
+        confirmElement.classList.add("show");
     }
 }
 
@@ -41,7 +43,7 @@ function checkForm(){
 
 <template>
         <main>
-            <div class="confirm confirmshow">
+            <div class="confirm">
                 <p>Du har nu skevet til os!</p>
             </div>
         <section class="gridwrap">
@@ -236,12 +238,14 @@ section{
     border-radius: 8px;
     position: fixed;
     right: -300px;
-    transition: right 5s ease-out;
-    display: none;
+    transition: right 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+    visibility: hidden;
 }
-.confirmshow{
+.confirm.show{
     right: 20px;
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 }
 
