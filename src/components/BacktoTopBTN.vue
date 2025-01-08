@@ -57,7 +57,6 @@
   background-color: var(--primary);
 }
 
-
 @keyframes pulse {
   0% {
     transform: scale(1);

@@ -82,6 +82,7 @@ const prevImage = () => {
 .carousel-control {
   position: absolute;
   top: 50%;
+  color: white;
   transform: translateY(-50%);
   background-color: var(--CTA);
   border: none;

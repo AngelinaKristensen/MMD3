@@ -2,6 +2,7 @@
 import beerIcon from "@/assets/Icons/beerIcon.png";
 import clockIcon from "@/assets/Icons/clockIcon.png";
 import Carousel from "@/components/ImageCarousel.vue";
+import Coins from "@/assets/Icons/coins.png"
 
 const tours = [
   {
@@ -9,7 +10,7 @@ const tours = [
     details: [
       { icon: beerIcon, text: "Antal smagninger: 6" },
       { icon: clockIcon, text: "Tid: 2 timer" },
-      { icon: clockIcon, text: "Pris: 125 kr. pr person" }
+      { icon: Coins, text: "Pris: 125 kr. pr person" }
     ]
   },
   {
@@ -17,7 +18,7 @@ const tours = [
     details: [
       { icon: beerIcon, text: "Antal smagninger: 3" },
       { icon: clockIcon, text: "Tid: 1 time" },
-      { icon: clockIcon, text: "Pris: 125 kr." }
+      { icon: Coins, text: "Pris: 125 kr." }
 
     ]
   }
