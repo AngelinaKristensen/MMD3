@@ -22,7 +22,7 @@ const showRest = () => {
         <img src="../assets/billeder/logomobil.png" alt="">
        </picture>
         <p class="aligntext">VI BRYGGER MED RESPEKT FOR HÅNDVÆRKET</p>
-        <div><p>Fredag 12-19 Lørdag 11-18</p>
+        <div class="timendPlace"><p>Fredag 12-19 Lørdag 11-18</p>
             <p>Vrenstedvej 12</p></div>
        </div>
        <svg class="arrow" width="79" height="107" viewBox="0 0 79 107" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,23 +34,26 @@ const showRest = () => {
         <section>
             <div class="wrapper">
                 <article class="welcome">
-                <h1>Velkommen</h1>
+                <h2>VELKOMMEN PÅ LØKKEN BRYGHUS</h2>
                 <p>På Løkken Bryghus, der er beliggende i byens centrum og tæt på tovet, brygger øl efter de gamle håndværkstraditioner.  Brygmester Kent Boalth har en hånd med i hele processen lige fra omhyggelig udvælgelse af de fineste malt- og humletyper til brygning og tapning på flasker eller fad. På Løkken Bryghus brygges der med økologisk malt, der dyrkes blot 12 km fra bryghuset. </p>
                 <p>Et besøg på Løkken Bryghus er en ganske særlig oplevelse af ølbrygningens kunst og giver et unikt indblik i det særlige håndværk, der kræves for netop at skabe Løkken Bryghus-øl. Bryggerstuen er stedet, hvor vores mange gæster mødes for at smage, vurdere og nyde de forskellige øltyper i hyggelige og afslappede omgivelser. Oplev Løkken Bryghus indefra i vores hyggelige bryggerstue eller køb øl i vores brewshop og gå en tur omkring Løkkens mange skønne seværdigheder. </p>
             </article>
             </div>
         </section>
+        <div class="wrapper2 welcome">
+            <h2>VORES ØL</h2>
+        </div>
         <BeerList :amountToSHow="currentAmountShowed"></BeerList>
        <div class="btn" v-if="currentAmountShowed<maxAmount">
-        <button @click="showRest">Se flere</button>
+        <button @click="showRest" class="btnstyle">SE FLERE</button>
        </div>
     </main>
     <section>
-        <div class="wrapper">
+        <div class="wrapper last">
                 <article class="welcome">
-                <h1>Brewshoppen</h1>
+                <h2>BREWSHOPPEN</h2>
                 <p>Brewshoppen holder åbent samtidig med vores Bryggerstue. Åbningstiderne finder du her på vores hjemmeside eller på vores Facebooks. Vores Brewshop på Løkken Bryghus er altid et besøg værd.</p>
-                <p>Her finder du alle vores øl og gavekasser. Vi hjælper altid med at finde den perfekte gave eller hvordan du kan blande den bedste smagskasse, hvis der skal hygges sammen med venner og familie.</p>
+                <p class="ext">Her finder du alle vores øl og gavekasser. Vi hjælper altid med at finde den perfekte gave eller hvordan du kan blande den bedste smagskasse, hvis der skal hygges sammen med venner og familie.</p>
             </article>
             <article class="grid2">
     <picture>
@@ -68,7 +71,16 @@ const showRest = () => {
 </template>
 
 <style scoped>
+.wrapper>.welcome h2{
+    padding-bottom: 24px;
+}
 
+.wrapper>.welcome p:first-of-type,.ext{
+    padding-bottom: 16px;
+}
+.wrapper2{
+    padding: 24px 0px 24px 20px;
+}
 .arrow{
     position: absolute;
     bottom: 220px;
@@ -85,6 +97,9 @@ const showRest = () => {
 .btn{
     display: flex;
     justify-content: center;
+}
+.last:last-of-type{
+    margin-top: 48px;
 }
 .wrapper{
     padding: 35px 20px;
@@ -124,7 +139,12 @@ i{
         background-image: url(../assets/billeder/headerdesktop.png);
     }
     .aligntext{
-    width: auto;
+    width: auto !important;
+    font-size: 36px !important;
+}
+.wrapper2{
+    padding: 36px 0px;
+    padding-left: 0px;
 }
 
 .welcome{
@@ -137,6 +157,9 @@ i{
 .wrapper{
     background-color: var(--primary);
     color: white;
+}
+.timendPlace p{
+    font-size: 36px;
 }
 
 }
@@ -160,6 +183,19 @@ header>div{
     100%{
         transform: translateY(0px) scale(1);
     }
+}
+
+.aligntext{
+    width: 21ch;
+    font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.timendPlace p{
+    font-style: italic;
+  font-weight: 700;
 }
 </style>
 
