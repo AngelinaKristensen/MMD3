@@ -136,7 +136,7 @@ nav li:hover .submenu {
 }
 
 /* Mobile styles */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   nav {
     display: flex;
     justify-content: space-between; 

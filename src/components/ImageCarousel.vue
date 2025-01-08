@@ -6,26 +6,26 @@ const Images = ref([
   new URL('@/assets/billeder/BrygMesterMobile.png', import.meta.url).href,
   new URL('@/assets/billeder/BryggetankeMobile.png', import.meta.url).href,
   new URL('@/assets/billeder/brygMobile.png', import.meta.url).href,
-  new URL('@/assets/billeder/anotherImage.png', import.meta.url).href,
+  new URL('@/assets/billeder/BrygMesterMobile.png', import.meta.url).href,
+  new URL('@/assets/billeder/BryggetankeMobile.png', import.meta.url).href,
+  new URL('@/assets/billeder/brygMobile.png', import.meta.url).href,
 ]);
 
-// State for the current active Image
+// Sætter current active image
 const currentIndex = ref(0);
 
 
-// Function to go to the next Image
+// Funktion til at gå til nææste billede
 
 const nextImage = () => {
   currentIndex.value = (currentIndex.value + 1) % Images.value.length;
 };
 
-// Function to go to the previous Image
+// Funktion til at gå til tidligere billede
 const prevImage = () => {
   currentIndex.value =
     (currentIndex.value - 1 + Images.value.length) % Images.value.length;
 };
-
-
 </script>
 
 <template>
@@ -52,11 +52,11 @@ const prevImage = () => {
   position: relative;
   overflow: hidden;
   width: 100%; /* Sætter bredde på carousel */
-  height: 250px; /* Sætter højden på carousel */
+  height: 270px; /* Sætter højden på carousel */
   display: flex;
   align-items: center;
   justify-content: center; /* gør sådan at billeder er centeret mellem knapperne */
-  margin-bottom: 20px; 
+  margin-bottom: var(--spacing-medium); 
 }
 
 .carousel-wrapper {
@@ -65,11 +65,9 @@ const prevImage = () => {
   grid-auto-columns: 100%; /* */
   transition: transform 0.3s ease-in-out;
   width: 90%; /* 90% for at der er plads til knapperne i siden */
-  
 }
 
 .carousel-image {
-  height: 100%;
   display: flex; 
   justify-content: center; /* sikre at billederne er centered */
 }
@@ -90,24 +88,23 @@ const prevImage = () => {
   cursor: pointer;
   padding: 10px;
   font-size: 20px;
-  z-index: 10; /* Ensure controls stay above the images */
+  z-index: 10; /* Sikre at controls er over images og kan ses*/
 }
 
 .carousel-control.prev {
-  left: 0; /* Ensure the button is aligned to the left edge */
+  left: 0; /* Gør at knappen sidder til Venstre*/
 }
 
 .carousel-control.next {
-  right: 0; /* Ensure the button is aligned to the right edge */
+  right: 0; /* Gør at knappen sidder til højre*/
 }
 
 /*---------------- CAROUSEL CONTROLS END----------- */
 
-/* Media query for desktop: Show 3 images */
 @media (min-width: 1000px) {
   .carousel-wrapper {
-    grid-auto-columns: 33.333%; /* Display 3 images */
-    gap: 0.5rem; /* tilføj spacing between images */
+    grid-auto-columns: 33.333%; /* 33.333% for at kunne vise 3 billeder*/
+    gap: 0.5rem; /* tilføj spacing mellem Billederne */
   }
 }
 </style>

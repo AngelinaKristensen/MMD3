@@ -45,7 +45,7 @@ const smorrebrodItems = [
       </div>
     </section>
 
-    <section>
+    <section class="MadUdvalg">
         <article>
             <h2>SMØRREBRØD</h2>
             <p>Hver fredag og lørdag serverer vi smørrebrød og en fadøl for 110 kr. Vi har en række af forskellige smørrebrød at vælge imellem.</p>
@@ -64,16 +64,14 @@ const smorrebrodItems = [
 </template>
 
 <style scoped>
-
-main{
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 var(--spacing-large); 
+.bryggeStuenIntro{
+  padding: 0 var(--spacing-large);
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
 .bryggeStuenIntro h1{
-    padding-bottom: 1rem;
-    padding-top: var(--spacing-small);
+  padding: var(--spacing-small) 0; 
 }
 
 .bryggeStuenIntro p{
@@ -85,29 +83,28 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem 0;
 }
 
 img {
-  max-width: 100%; 
+  max-width: 80%; 
   height: auto; 
 }
 
-section{
-   padding-bottom: var(--spacing-small);
-   display: flex;
-   flex-direction: column;
-   margin: 1rem;
+.MadUdvalg{
+  padding: 0 var(--spacing-large);
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
-article {
-  max-width: auto;
-  margin-bottom: 1rem;
+.MadUdvalg h2{
+  padding-top: 1rem;
 }
+
 /*------------ snackmenu ---------------*/
 .snackMenu {
   background-color: var(--primary); 
-  width: 100vw; 
-  margin-left: calc(-50vw + 50%); 
+  width: 100%; 
   padding: var(--spacing-small) 0; 
 }
 
@@ -124,7 +121,6 @@ article {
 .snackMenu ul {
   list-style: none;
 }
-
 /*------------ snackmenu END ---------------*/
 
 ul li {
@@ -132,6 +128,7 @@ ul li {
   padding-bottom: 1rem;
   padding-top: 1rem;
 }
+
 
 /*------------ MEDIA QUERY START ---------------*/
 
@@ -157,52 +154,10 @@ ul li {
     align-items: center;
   }
 
-  
   img {
     max-height: 80vh;
     max-width: 90%; 
   }
-
-  section.snackMenu {
-    flex-direction: column; 
-    gap: 1rem; 
-
-  }
-
-  .snackMenu {
-    max-width: auto;
-  }
-}
-
-
-@media (min-width: 1500px) {
-  main {
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0; 
-  }
-
-  .bryggestuenImage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  img {
-    max-height: 80vh; 
-    max-width: 80%;
-  }
-
-  section {
-    display: flex;
-    flex-direction: row;
-  }
-
-  article {
-    flex: 1;
-  }
-
 }
 
 /*------------ MEDIA QUERY END ---------------*/

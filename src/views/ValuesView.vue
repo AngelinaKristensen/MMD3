@@ -1,7 +1,34 @@
 <script setup>
+
+import { ref } from 'vue';
 import missionICON from '@/assets/Icons/Mission.svg';
 import valueICON from '@/assets/Icons/Vision.svg';
 import visionICON from '@/assets/Icons/Values.svg';
+
+import LophaveLogo from '@/assets/billeder/Lophave.png'; 
+import GyrupGaardmalLogo from '@/assets/billeder/GyrupGaardmal.png'; 
+import bageriHaabetLogo from '@/assets/billeder/bageriHaabet.png' ;
+import LaesoeTangLogo from '@/assets/billeder/LaesoeTangLogo.jpg'; 
+
+const firmaer = ref([
+  {
+    logo: LophaveLogo, 
+    name: 'Lophave Hereford'
+  },
+  {
+    logo: GyrupGaardmalLogo, 
+    name: 'gyrup'
+  },
+  {
+    logo: bageriHaabetLogo, 
+    name: 'Bageri Haabet'
+  },
+  {
+    logo: LaesoeTangLogo, 
+    name: 'tofteladen'
+  }
+]);
+
 </script>
 
 <template>
@@ -30,8 +57,12 @@ import visionICON from '@/assets/Icons/Values.svg';
     </section>
 
     <section>
-        <h3>VORES SAMARBEJDSPARTNERE</h3>
-        <div class="SamarbejdspartnereIcons">
+      <h3>VORES SAMARBEJDSPARTNERE</h3>
+      <div class="Samarbejdspartnere">
+          <div v-for="(firma, index) in firmaer" :key="index" class="firma-item">
+            <img :src="firma.logo" :alt="firma.name" class="firma-logo" />
+            <p>{{ firma.name }}</p>
+           </div>
         </div>
     </section>
 
@@ -86,6 +117,28 @@ article span {
   font-weight: bold;
 }
 
+.Samarbejdspartnere {
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+  gap: 2rem;  
+  margin-top: var(--spacing-small); 
+}
+
+.firma-item {
+  display: flex;
+  flex-direction: column;  
+  align-items: center; 
+  max-width: 150px;  /* max-width af hvert item i container */
+  text-align: center;  
+}
+
+.firma-logo {
+  max-width: 200px;  
+  height: 100px;  
+  object-fit: contain;  
+  margin-bottom: 1rem; 
+}
 
 /*-------------- Media queries START ------------------*/
 

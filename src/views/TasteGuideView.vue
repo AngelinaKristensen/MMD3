@@ -12,11 +12,13 @@
   </div>
 </section>
     
-    <section class="sectionWithImage">
+<section class="TasteGuide">
+
+  <section class="sectionWithImage">
         <article>
             <h2>UDSEENDE</h2>
             <p>Vi spiser og drikker med øjnene. Derfor giver øjnene os den første oplevelse af øllet. </p>
-                <ul>
+                <ul class="udseendeList">
                     <li>Hold glasset op mod lyset og vurder dets farve, klarhed, skum og livlighed. </li>
                     <li>Er øllet strågult, ravgylden, nøddebrunt eller kaffesort?</li>
                     <li>Slyng øllet rundt i glasset, hvorved der frigives aroma, og man kan vurdere øllets skum. Giver øllet ”blonder” på glassets sider?</li>
@@ -24,7 +26,7 @@
         </article>
     
         <div class="tasteGuideImage">
-            <img src="../assets/billeder/Oeludseende.png" alt="Bryggerstuen image" />
+            <img src="@/assets/billeder/Oeludseende.png" alt="Bryggerstuen image" />
         </div>
 
         <article>
@@ -41,10 +43,10 @@
         </article>
     
         <div class="tasteGuideImage">
-            <img src="../assets/billeder/OelSmag.png" alt="Bryggerstuen image" />
+            <img src="@/assets/billeder/OelSmag.png" alt="Bryggerstuen image" />
         </div>
 
-        <article>
+        <article class="TasteGuideContent">
             <h2>FØLESANSEN</h2>
             <p>Man kan føle øllets livlighed i form af prikken fra den frigivne kuldioxid. I munden oplever man øllets fylde, og om det føles kølende eller varmende. Det er alkoholen i øllet, der bidrager med fylde og varme.</p>
             <p>Øllets temperatur er også afgørende for ølsmagningen. Er øllet for koldt, bedøves slimhinder og smagsløg i munden og øllet smager af ingenting.</p>
@@ -53,53 +55,59 @@
     
     
     <section class="sectionWithImage">
-        <article>
+        <article class="TasteGuideContent">
             <h2>Høresansen</h2>
             <p>I første omgang opfanger vi øllets aroma via duften. Hold øllet op til næsen og snus med næsen.  Dufter det af humle og blomster, krydderier, nødder eller frugter og bær? Kan du dufte malt og alkohol?</p>
         </article>
     
         <div class="tasteGuideImage">
-            <img src="../assets/billeder/OelFølesansen.png" alt="Bryggerstuen image" />
+            <img src="@/assets/billeder/OelFølesansen.png" alt="Bryggerstuen image" />
         </div>
 
-        <article>
+        <article class="TasteGuideContent">
             <h2>SKÅL</h2>
             <p>Det er med øl som med kærlighed. Den er altid bedst, når du oplever den med andre. Øl er en social drik og derfor altid bedst i godt selskab og rare omgivelser.</p>
             <p>Ølsmagning er derfor ikke blot en smag af øl, men en sanseoplevelse…</p>
         </article>
     </section>
         
+</section>
+   
     
 </main>
 
 </template>
 
 <style scoped>
-/* Intro Section */
-
-main{
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 var(--spacing-large); 
-}
 
 .madSectionIntro {
   background-color: var(--primary); 
   color: var(--light); 
-  width: 100vw; /* Gør sådan at den røde background går fullwidth */
-  margin-left: calc(-50vw + 50%); /* Sikre at sektioner aligner indenfor viewport. */
-  padding: 40px 0; 
+  width: 100%; 
+  padding: 0 var(--spacing-large); 
+  padding-bottom: var(--spacing-small);
 }
 
 .madOgSmagcontentContainer {
-  max-width: 1200px; /* sikre at content bliver inden for denne width når den går i mobile */
-  margin: 0 auto; /* Centrerer indhold */
-  padding: 0 var(--spacing-large); 
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.madOgSmagcontentContainer article{
+  padding: 0 1rem;
 }
 
 .madOgSmagcontentContainer h1{
-    padding-bottom: 1rem;
-    padding-top: var(--spacing-small);
+    padding: var(--spacing-small) 0;
+}
+
+.udseendeList li{
+  padding: 1rem 0;
+}
+
+.TasteGuide{
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
 /* Section Styles */
@@ -117,8 +125,6 @@ main{
 
 /*------------ MEDIA QUERY START ---------------*/
 @media (min-width: 1000px) {
-
-  
   .sectionWithImage {
     grid-template-columns: 1fr 1fr; 
     gap: 1rem;

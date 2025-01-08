@@ -66,11 +66,11 @@ import instagramIcon from "@/assets/Icons/instagramIcon.svg";
 
 .footer {
     display: flex;
-    flex-direction: row; /* Default: Stack items in a column (for mobile) */
+    flex-direction: row; 
     justify-content: space-between;
     padding: 2rem;
-    max-width: 1200px; /* Same as the main container */
-    margin: 0 auto; /* Center footer content */
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 
 .footer > div {
@@ -127,7 +127,7 @@ import instagramIcon from "@/assets/Icons/instagramIcon.svg";
 /* Desktop Layout */
 @media (max-width: 768px) {
     .footer {
-        flex-direction: column; /* Switch to row layout on desktop */
+        flex-direction: column; /* skift til mobile layout */
         gap: 2rem;
        
     }

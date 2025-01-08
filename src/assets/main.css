@@ -71,7 +71,7 @@ p{
 
 
 /* Mobile headings (skal rettes) */
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 900px) {
   h1 {
     font-size: 2rem;
   }
