@@ -53,9 +53,12 @@ function checkForm(){
                     <source media="(min-width: 1000px)" srcset="../assets/billeder/logodesktop.png">
                     <img src="../assets/billeder/logomobil.png" alt="">
                 </picture>
-                <p>Løkken Bryggeri APS</p>
-                <p>Vrenstedvej 12</p>
-                <p>9480 Løkken</p>
+                <h3 class="pc">Løkken Bryggeri APS</h3>
+                <h3 class="pc">Vrenstedvej 12</h3>
+                <h3 class="pc">9480 Løkken</h3>
+                <p class="mobile">Løkken Bryggeri APS</p>
+                <p class="mobile">Vrenstedvej 12</p>
+                <p class="mobile">9480 Løkken</p>
             </article>
             <article class="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2151.3423081478795!2d9.710103776854737!3d57.370253773725594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4648dbe56b03cc9f%3A0x96451778f0930e42!2sL%C3%B8kken%20Bryghus!5e0!3m2!1sda!2sdk!4v1736249959516!5m2!1sda!2sdk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -119,7 +122,7 @@ function checkForm(){
                     <p v-else class="green">Udfyldt</p>
                 </div>
                 <div>
-                    <button @click="checkForm">Send</button>
+                    <button @click="checkForm" class="btnstyle">Send</button>
                 </div>
             </div>
         </section>
@@ -128,6 +131,11 @@ function checkForm(){
 </template>
 
 <style scoped>
+
+.pc{
+    display: none;
+}
+
 
 .hide{
     display: none;
@@ -185,6 +193,13 @@ section{
 }
 
 @media (min-width: 1000px){
+
+    .mobile{
+        display: none;
+    }
+    .pc{
+        display: block;
+    }
     section{
         padding: 0px;
         display: grid;
@@ -245,6 +260,15 @@ section{
     position: fixed;
     animation: paperplanePC 4.5s ease-in-out forwards !important;
 }
+.staff{
+    margin: 24px 0px 0px 0px !important;
+}
+}
+
+
+.map{
+    margin-top: 10px;
+    margin-bottom: 62px;
 }
 
 @keyframes popUp {
@@ -302,5 +326,9 @@ section{
 
 .confirm{
     display: none;
+}
+
+.staff{
+    margin: 62px 0px;
 }
 </style>
