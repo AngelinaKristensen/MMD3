@@ -32,5 +32,5 @@ import BeerList from '@/components/BeerList.vue';
 .ourbeer p,h1 {
     color: white;
 }
-
+    
 </style>
