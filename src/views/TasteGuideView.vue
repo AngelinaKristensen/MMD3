@@ -91,13 +91,11 @@
 }
 
 section.sectionWithImage article {
-  padding: 1rem; /* Consistent internal padding */
-  margin: 0 auto; /* Center align for consistency */
+  margin: 0 auto; 
   line-height: 2; 
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column; /* Stack indhold vertikalt */
   gap: 1rem;
-  text-align: left; /* Ensure proper alignment for content */
 }
 
 .madOgSmagcontentContainer h1{
@@ -125,8 +123,6 @@ section.sectionWithImage article {
   height: auto;
   width: 100%;
 }
-
-
 
 /*------------ MEDIA QUERY START ---------------*/
 @media (min-width: 1000px) {
