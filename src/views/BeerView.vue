@@ -25,15 +25,14 @@ import BeerList from '@/components/BeerList.vue';
     }
 }
 .wrapper{
-    padding: 32px 0px 32px 18px;
+    padding: 32px 18px 32px 18px;
     background-color: var(--primary);
 }
 
 .ourbeer p,h1 {
     color: white;
 }
-
-.ourbeer p {
-    width: 45ch;
+.ourbeer p{
+    width: 32ch;
 }
 </style>

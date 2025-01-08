@@ -103,3 +103,26 @@ p{
 .btn{
   margin: 48px 0px;
 }
+
+
+
+#spinner{
+  top: 200px;
+  position: absolute;
+  width: 17%;
+  animation: rotate 1.5s ease-out infinite;
+}
+
+.stopspinning{
+  display: none;
+}
+
+
+@keyframes rotate {
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}
