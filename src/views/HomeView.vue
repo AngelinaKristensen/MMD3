@@ -150,7 +150,6 @@ header>div{
 }
 
 
-
 @keyframes bounce{
     0%{
         transform: translateY(0px) scale(1);
@@ -162,7 +161,6 @@ header>div{
         transform: translateY(0px) scale(1);
     }
 }
-
 </style>
 
 
