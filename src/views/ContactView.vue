@@ -35,7 +35,8 @@ function checkForm(){
         icon.classList.remove("hide")
         icon.classList.add("fly");
         let confirmElement = document.querySelector(".confirm");
-        confirmElement.classList.add("show");
+        confirmElement.classList.add("show")
+
     }
 }
 
@@ -102,8 +103,8 @@ function checkForm(){
                 <div class="inputfield">
                     <label for="phone"></label>
                     <input type="text" name="phone" id="phone" placeholder="Dit telefonnummer" required v-model="phoneNumber">
-                    <p v-if="!phonenumberPattern.test(phoneNumber)" class="red">Ugyldig telefonnummer</p>
-                    <p v-else class="green">Udfyldt og gyldig telefon</p>
+                    <p v-if="!phonenumberPattern.test(phoneNumber)" class="red">Ikke udfyldt endnu eller ugyldig telefonnummer</p>
+                    <p v-else class="green">Udfyldt og gyldigt telefonnummer</p>
                 </div>
                 <div class="inputfield">
                     <label for="subject"></label>
@@ -223,40 +224,83 @@ section{
         grid-row: 1;
     }
 
+.confirm{
+    display: block !important;
+    background-color: green;
+    color: white;
+    padding: 16px 6px;
+    border-radius: 8px;
+    position: fixed;
+    right: -300px;
+    top: 20px;
+    transition: opacity 0.5s ease out;
+    opacity: 0;
+    visibility: hidden;
+}
+.confirm.show{
+    animation: popUp 4.5s ease-in-out 4s forwards;  
+}
+
 .fly{
-        position: absolute;
+    position: fixed;
+    animation: paperplanePC 4.5s ease-in-out forwards !important;
+}
+}
+
+@keyframes popUp {
+    0%{
+        right: -300px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    10%{
+        right: 20px;
+        opacity: 1;
+        visibility: visible;
+    }
+    90%{
+        right: 20px;
+        opacity: 1;
+        visibility: visible;
+    }
+    100%{
+        right: -300px;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes paperplaneMobile {
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(100vw, -190vh);
+    }
+}
+
+@keyframes paperplanePC
+{
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(100vw, -210vh);
+    }
+} 
+
+.fly{
+        position: fixed;
         bottom: 0;
         left: 0;
         font-size: 35px;
         color: blue;
         rotate: 20deg;
-        animation: paperplane 4.5s ease-in-out forwards;
+        animation: paperplaneMobile 4.5s ease-in-out forwards !important;
 }
+
 
 .confirm{
-    background-color: green;
-    border-radius: 8px;
-    position: fixed;
-    right: -300px;
-    transition: right 0.5s ease-out, opacity 0.5s ease-out;
-    opacity: 0;
-    visibility: hidden;
+    display: none;
 }
-.confirm.show{
-    right: 20px;
-    visibility: visible;
-    opacity: 1;
-}
-}
-
-@keyframes paperplane {
-    0%{
-        transform: translate(0,0);
-    }
-    100%{
-        transform: translate(100vw, -205vh);
-    }
-}
-
-
 </style>
