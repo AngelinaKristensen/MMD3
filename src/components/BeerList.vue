@@ -14,9 +14,11 @@ const props = defineProps({
 
 onMounted(()=>{
     getCategory(26)
-    .then(data=> beers.value = data)
-    let spinner = document.querySelector("#spinner");
-    spinner.classList.add("stopspinning")
+    .then(data=>{
+        beers.value = data;
+        let spinner = document.querySelector("#spinner");
+        spinner.classList.add("stopspinning")
+    })
 })
 </script>
 

@@ -15,9 +15,12 @@ function removeId(){
 
 onMounted(()=>{
     getCategory(27)
-    .then(data=> events.value = data)
-    let spinner = document.querySelector("#spinner");
-    spinner.classList.remove("spinning")
+    .then(data=>{
+        events.value = data;
+        let spinner = document.querySelector("#spinner");
+        spinner.classList.add("stopspinning");
+    })
+
     let xcon = document.querySelector("i");
     overlay = document.querySelector(".overlay");
     xcon.addEventListener("click",function(){
@@ -53,7 +56,7 @@ const click = () => {
             </div>
             </a>
         </div>
-        <svg id="spinner" class="spinning" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
+        <svg id="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
     </section>
     <div class="overlay">
         <div class="modal">
@@ -80,27 +83,6 @@ const click = () => {
 
 
 <style scoped>
-svg{
-    display: none;
-    top: 200px;
-    position: absolute;
-    width: 17%;
-}
-
-.spinning{
-    display: block;
-    animation: rotate 1.5s ease-out infinite;
-}
-
-@keyframes rotate {
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-}
-
 
 section{
     position: relative;
@@ -123,12 +105,13 @@ section{
 }
 
 .card img {
+    width: 100%;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
 
 .text{
-    padding: 16px 0px 16px 16px;
+    padding: 0px 0px 16px 16px;
     width: 40ch;
 }
 
@@ -175,7 +158,7 @@ section{
         width: 500px;
     }
     .summary{
-        width: 75ch;
+        width: 69ch;
     }
 }
 .overlay{
@@ -248,13 +231,8 @@ section{
         column-gap: 40px;
         row-gap: 40px;
     }
-
-    .text{
-        width: 45ch;
-    }
-
     .card:hover{
-        scale: 1.1;
+        scale: 1.08;
     }
     .card{
         transition: 500ms;
