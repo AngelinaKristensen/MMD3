@@ -94,11 +94,11 @@
 }
 
 .madOgSmagcontentContainer article{
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 .madOgSmagcontentContainer h1{
-    padding: var(--spacing-small) 0;
+    padding: 1rem 0;
 }
 
 .udseendeList li{
@@ -125,6 +125,7 @@
 
 /*------------ MEDIA QUERY START ---------------*/
 @media (min-width: 1000px) {
+
   .sectionWithImage {
     grid-template-columns: 1fr 1fr; 
     gap: 1rem;
