@@ -32,7 +32,5 @@ import BeerList from '@/components/BeerList.vue';
 .ourbeer p,h1 {
     color: white;
 }
-.ourbeer p{
-    width: 32ch;
-}
+
 </style>

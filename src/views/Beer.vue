@@ -7,6 +7,7 @@ let beerinfo = ref({acf:{}});
 
 onMounted(async()=>{
     beerinfo.value = await getPost(id);
+
 })
 
 </script>
@@ -20,8 +21,8 @@ onMounted(async()=>{
             </picture>
             <article class="boxmargin">
                 <div>
-                    <h1>{{ beerinfo.acf.titel }}</h1>
-                    <h3>{{ beerinfo.acf.type }}</h3>
+                    <h1 class="uppercase">{{ beerinfo.acf.titel}}</h1>
+                    <h3 class="uppercase">{{ beerinfo.acf.type }}</h3>
                     <p class="text">{{ beerinfo.acf.beskrivelse }}</p>
                 </div>
                 <div class="infoContainer">
@@ -63,6 +64,9 @@ onMounted(async()=>{
     font-size: 20px;
     width: 40ch;
     margin: 36px 0px 46px 0px;
+}
+p{
+    font-size: 20px;
 }
 
 h1{
@@ -123,4 +127,16 @@ h3{
     align-items: center;
     border-radius: 50%;
 }
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.text{
+    margin: 24px 0px;
+}
+h1.uppercase:first-of-type{
+    margin-top: 16px;
+}
+
 </style>
