@@ -55,6 +55,11 @@ const toggleMenu = () => {
 </template>
 
 <style scoped>
+
+ul{
+  font-weight: 700;
+  font-family: var(--font-text);
+}
 li:hover{
   text-decoration: underline;
   text-underline-offset: 8px;

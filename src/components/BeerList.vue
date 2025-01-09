@@ -95,7 +95,7 @@ section{
 
 
 section{
-    padding: 2rem 0rem 4rem 0rem;
+    padding: 0rem 0rem 4rem 0rem;
 }
 
 
