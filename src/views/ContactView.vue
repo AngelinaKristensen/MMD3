@@ -335,7 +335,7 @@ section{
         bottom: 0;
         left: 0;
         font-size: 35px;
-        color: blue;
+        color: #f4a261;
         rotate: 20deg;
         animation: paperplaneMobile 4.5s ease-in-out forwards !important;
 }
