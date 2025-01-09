@@ -1,4 +1,5 @@
 <script setup>
+import backToTopBTN from '@/components/BacktoTopBTN.vue'
 
 </script>
 
@@ -52,7 +53,10 @@
             <source srcset="../assets/billeder/Galleri12Desktop.png" media="(min-width: 1000px)">
             <img src="../assets/billeder/Galleri12Mobil.png" alt="">
         </picture>
+        
     </section>
+
+    <backToTopBTN />
 </template>
 
 <style scoped>
