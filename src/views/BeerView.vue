@@ -1,5 +1,7 @@
 <script setup>
 import BeerList from '@/components/BeerList.vue';
+import backToTopBTN from '@/components/BacktoTopBTN.vue'
+
 </script>
 
 <template>
@@ -11,6 +13,7 @@ import BeerList from '@/components/BeerList.vue';
         </article>
         </div>
         <BeerList></BeerList>
+        <backToTopBTN />
     </main>
 </template>
 
