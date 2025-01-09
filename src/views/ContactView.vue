@@ -348,4 +348,8 @@ section{
 .staff{
     margin: 62px 0px;
 }
+
+textarea {
+  resize: none;
+}
 </style>
