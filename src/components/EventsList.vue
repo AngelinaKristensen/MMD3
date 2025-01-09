@@ -1,12 +1,16 @@
 <script setup>
+// Importer funktioner fra vue
 import { ref, onMounted} from 'vue';
+//Importer funktioner fra app.s
 import { getQueryParameter, getCategory} from '../assets/js/app.js';
 
+//Ref variabler og variabler
 const events = ref([]);
 let id = ref(null);
 let currentEvent = ref({acf:{}});
 let overlay;
 
+//Funktion som skal fjerne id fra hash i url
 function removeId(){
     let url = window.location.href;
     let newUrl = url.split('?')[0];
@@ -14,6 +18,7 @@ function removeId(){
 }
 
 onMounted(()=>{
+        // Fetcher vores data når komponenten er blevet mounted og derefter gemmer vi den i events.value
     getCategory(27)
     .then(data=>{
         events.value = data;
@@ -31,6 +36,7 @@ onMounted(()=>{
 })
 
 const click = () => {
+    // Når der klikkes så bliver idet fra url fanget ved hjælp af getqueryparamter funktionen. Derefter bruger en .find funktionen i javascript til at finde et objekt som har den id i vores events array. Der er også en lille timeout før det sker
    setTimeout(()=>{
     id.value = getQueryParameter();
     currentEvent.value = events.value.find(event=> event.id === parseInt(id.value));

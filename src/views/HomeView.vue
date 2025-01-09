@@ -2,10 +2,11 @@
 import BeerList from '@/components/BeerList.vue';
 import { ref} from 'vue';
 
-
+//Ref variabler og værdier
 let currentAmountShowed = ref(8);
 const maxAmount = 12;
 
+//Funktion som skal vise de sidste øl
 const showRest = () => {
     if(currentAmountShowed.value < maxAmount){
         currentAmountShowed.value +=4;
@@ -43,8 +44,11 @@ const showRest = () => {
         <div class="wrapper2 welcome">
             <h2>VORES ØL</h2>
         </div>
+        <!-- Komponenten som har videregivet data med props -->
         <BeerList :amountToSHow="currentAmountShowed"></BeerList>
+        <!-- Conditionalrendering -->
        <div class="btn" v-if="currentAmountShowed<maxAmount">
+        <!-- Eventlistner som skal udføre funktion når der trykkes på den -->
         <button @click="showRest" class="btnstyle">SE FLERE</button>
        </div>
     </main>

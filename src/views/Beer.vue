@@ -2,10 +2,16 @@
 import { ref, onMounted } from 'vue';
 
 import { getQueryParameter, getPost } from '../assets/js/app.js';
+
+//Funktion som retunrerer et id
 let id = getQueryParameter();
+
+//Et tom objekt som venter på at intialiseret
 let beerinfo = ref({acf:{}});
 
+//Funktion fra vue. Bliver indlæst når komponenter indlæses i doom.
 onMounted(async()=>{
+    //Asynkron kald som bliver awaitet.
     beerinfo.value = await getPost(id);
 
 })

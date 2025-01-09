@@ -1,9 +1,13 @@
 <script setup>
+// Importer funktioner fra vue
 import { ref, onMounted} from 'vue';
+//Importer funktioner fra app.s
 import {getCategory } from '../assets/js/app.js';
 
+//Ref værrdi
 const beers = ref([]);
 
+// Et objekt som man kan bruge til at videregive data til et komponent. Det tager et nummer men default værdien er 12
 const props = defineProps({
     amountToSHow:{
         type: Number,
@@ -13,6 +17,7 @@ const props = defineProps({
 });
 
 onMounted(()=>{
+    // Fetcher vores data når komponenten er blevet mounted og derefter gemmer vi den i beers.value
     getCategory(26)
     .then(data=>{
         beers.value = data;
@@ -24,6 +29,7 @@ onMounted(()=>{
 
 <template>
     <section>
+        <!-- Et for loop in vue, som looper igennem voes array fra beers og derefter laver html elementer -->
         <article v-for="beer in beers.slice(0,props.amountToSHow)">
                <a :href="'/#/Beer?id=' + beer.id">
                 <img :src="beer.acf.cardimg" :alt="beer.acf.titel">

@@ -1,13 +1,17 @@
 <script setup>
 import { ref} from 'vue';
+//Mønstre
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const phonenumberPattern = /^\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/;
+
+//Ref variabler
 let email = ref("")
 let name = ref("")
 let message = ref("")
 let phoneNumber = ref("")
 let subject = ref("")
 
+//Funktionen som tjekker om inputsne er gyldige eller udfyldt
 function checkForm(){
     let checker = true
     if(name.value.length<2){
@@ -30,6 +34,8 @@ function checkForm(){
         alert("Beskeden er ikke udfyldt"); 
         checker = false;
     }
+
+    //Hvis alt er udfyldt og gyldigt, så vil kører dette her som starter en animation i gang.
     if(checker){
         let icon = document.querySelector("#paperplane");
         icon.classList.remove("hide")
@@ -93,35 +99,46 @@ function checkForm(){
                 <h2>Skriv til os</h2>
                 <div class="inputfield">
                     <label for="firstname"></label>
+                    <!-- V-binding som binder name til input. Names værdi bliver hvad input er. -->
                     <input type="text" name="firstname" id="firstname" placeholder="Dit navn" required v-model="name">
+                    <!-- Conditional rendering. Kontrolstruktur som tjekker om betingelser sande. Det er alt efter om inputet er udfyldt eller gyldigt. -->
                     <p v-if="name.length<2" class="red">Ikke udfyldt endnu</p>
                     <p v-else class="green">Udfyldt</p>
                 </div>
                 <div class="inputfield">
                     <label for="email"></label>
+                    <!-- V-binding som binder email til input. email værdi bliver hvad input er. -->
                     <input type="email" name="email" id="email" placeholder="Din e-mail" required v-model="email">
+                    <!-- Conditional rendering. Kontrolstruktur som tjekker om betingelser sande. Det er alt efter om inputet er udfyldt eller gyldigt. -->
                     <p v-if="!emailPattern.test(email)" class="red">Ikke udfyldt endnu eller ugyldig mail</p>
                     <p v-else class="green">Udfyldt og gyldig mail</p>
                 </div>
                 <div class="inputfield">
                     <label for="phone"></label>
+                    <!-- V-binding som binder phonenumber til input. phoneNumber værdi bliver hvad input er. -->
                     <input type="text" name="phone" id="phone" placeholder="Dit telefonnummer" required v-model="phoneNumber">
+                    <!-- Conditional rendering. Kontrolstruktur som tjekker om betingelser sande. Det er alt efter om inputet er udfyldt eller gyldigt. -->
                     <p v-if="!phonenumberPattern.test(phoneNumber)" class="red">Ikke udfyldt endnu eller ugyldig telefonnummer</p>
                     <p v-else class="green">Udfyldt og gyldigt telefonnummer</p>
                 </div>
                 <div class="inputfield">
                     <label for="subject"></label>
+                     <!-- V-binding som binder subject til input. subject værdi bliver hvad input er. -->
                     <input type="text" name="subject" id="subject" placeholder="Emne" required v-model="subject">
+                    <!-- Conditional rendering. Kontrolstruktur som tjekker om betingelser sande. Det er alt efter om inputet er udfyldt eller gyldigt. -->
                     <p v-if="subject.length<1" class="red">Ikke udfyldt endnu</p>
                     <p v-else class="green">Udfyldt</p>
                 </div>
                 <div class="inputfield">
                     <label for="message"></label>
+                    <!-- V-binding som binder message til input. message værdi bliver hvad input er. -->
                     <textarea name="message" id="message" rows="15" placeholder="Din besked" required v-model="message"></textarea>
+                    <!-- Conditional rendering. Kontrolstruktur som tjekker om betingelser sande. Det er alt efter om inputet er udfyldt eller gyldigt. -->
                     <p v-if="message.length<1" class="red">Ikke udfyldt endnu</p>
                     <p v-else class="green">Udfyldt</p>
                 </div>
                 <div>
+                    <!-- Dette er vues evenlistner. Når der trykkes på knappen udføres der en funktion -->
                     <button @click="checkForm" class="btnstyle">Send</button>
                 </div>
             </div>
