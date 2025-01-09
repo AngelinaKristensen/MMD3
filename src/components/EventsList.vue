@@ -93,6 +93,7 @@ const click = () => {
 
 section{
     position: relative;
+    padding: 2rem 0rem 4rem 0rem;
 }
 .card a {
     text-decoration: none;

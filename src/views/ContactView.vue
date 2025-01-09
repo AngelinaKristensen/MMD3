@@ -149,6 +149,9 @@ function checkForm(){
 
 <style scoped>
 
+main{
+    background-color: var(--primary);   
+}
 .pc{
     display: none;
 }
@@ -177,9 +180,6 @@ textarea{
 iframe{
     width: 100%;
     height: 268px;
-}
-main{
-    background-color: var(--primary);
 }
 section{
     color: white;
@@ -351,5 +351,9 @@ section{
 
 textarea {
   resize: none;
+}
+
+main{
+    padding: 4rem 0rem;
 }
 </style>

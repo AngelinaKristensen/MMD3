@@ -94,6 +94,11 @@ section{
 }
 
 
+section{
+    padding: 2rem 0rem 4rem 0rem;
+}
+
+
 
 p{
     text-align: center;

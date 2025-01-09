@@ -65,6 +65,9 @@ onMounted(async()=>{
 </template>
 
 <style scoped>
+main{
+    padding: 2rem 0rem 4rem 0rem;
+}
 @media (min-width:1000px) {
     .text{
     font-size: 20px;
