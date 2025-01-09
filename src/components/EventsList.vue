@@ -23,8 +23,10 @@ onMounted(()=>{
     getCategory(27)
     .then(data=>{
         events.value = data;
-        let spinner = document.querySelector("#spinner");
-        spinner.classList.add("stopspinning");
+        let spinner = document.querySelectorAll("#spinner");
+        spinner.forEach(function(spin){
+            spin.classList.add("stopspinning");
+        })
     })
 
     let xcon = document.querySelector("i");

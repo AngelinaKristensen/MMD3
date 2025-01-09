@@ -3,7 +3,10 @@ import EventList from '@/components/EventsList.vue';
 </script>
 
 <template>
-    <EventList></EventList>
+    <main>
+        <EventList></EventList>
+    </main>
+    
 </template>
 <style scoped>
 </style>
