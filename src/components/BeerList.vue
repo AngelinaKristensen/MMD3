@@ -64,7 +64,7 @@ section{
     position: relative;
 }
 
-@media (min-width: 1000px){
+@media (min-width: 1200px){
     section{
         display: grid;
         grid-template-columns: repeat(4,1fr);
@@ -81,6 +81,19 @@ section{
         transition: 500ms;
     }
 }
+@media (min-width: 1000px) and (max-width: 1199px){
+    section{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        row-gap: 3rem;
+        column-gap: 4rem;
+        justify-items: center;
+        max-width: 1150px;
+        margin: 0 auto;
+    }
+}
+
+
 
 p{
     text-align: center;
