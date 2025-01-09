@@ -1,4 +1,5 @@
 <script setup>
+import {RouterLink} from "vue-router";
 // Importer funktioner fra vue
 import { ref, onMounted} from 'vue';
 //Importer funktioner fra app.s
@@ -48,8 +49,8 @@ const click = () => {
 <template>
     <section>
         <div class="card" v-for="event in events" :key="event.id">
-            <a :href="'/#/Begivenheder?id=' + event.id" @click="click">
-                <div class="date">
+            <RouterLink :to="{name: 'begivenheder', query:{id:event.id}}" @click="click">
+            <div class="date">
                 <p>{{ event.acf.datedot }}</p>
             </div>
             <picture>
@@ -60,7 +61,7 @@ const click = () => {
                 <h3>{{event.acf.titel}}</h3>
                 <p>{{ event.acf.disclosuretekst }}</p>
             </div>
-            </a>
+        </RouterLink>
         </div>
         <svg id="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
     </section>

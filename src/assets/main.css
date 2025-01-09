@@ -64,6 +64,7 @@ h3{
 
 p{
   font-size: 1rem;
+  font-family: var(--font-text);
 }
 
 
