@@ -36,7 +36,7 @@ import backToTopBTN from '@/components/BacktoTopBTN.vue'
 }
 
 .brygIntro h1{
-    padding-bottom: 1rem;
+    padding: 1rem 0;
 }
 
 .timelineSection{

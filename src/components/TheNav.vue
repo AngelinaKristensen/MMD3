@@ -31,7 +31,7 @@ const toggleMenu = () => {
 
       <!-- Dropdown-menu -->
       <li class="dropdown">
-        <RouterLink to="#">Bryghus</RouterLink>
+        <span class ="dropdown-link">Bryghus ⬇ </span>
         <div class="submenu">
           <RouterLink to="/Bryggerstuen">Bryggerstuen</RouterLink>
           <RouterLink to="/Brygproces">Brygproces</RouterLink>
@@ -57,7 +57,7 @@ const toggleMenu = () => {
 <style scoped>
 /* Basic Styles */
 nav {
-  background-color: var(--primary);
+  background-color: var(--dark-2);
   display: flex;
   justify-content: center;
   position: relative;
@@ -77,7 +77,6 @@ nav ul {
   padding: 1rem;
   list-style: none;
 }
-
 nav li {
   position: relative;
 }
@@ -88,7 +87,18 @@ nav a {
   color: white;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.router-link-active {
+  color: #f4a261;
+}
+
+nav .dropdown-link {
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+nav .dropdown-link:hover {
   color: #f4a261;
 }
 /* ---------Navigation elements styling END----------*/
@@ -99,7 +109,7 @@ nav .submenu {
   position: absolute;
   top: 100%; /* Placer under dropdown-linket */
   left: 0;
-  background-color: var(--primary);
+  background-color: var(--dark-2);
   padding: 1rem;
   z-index: 10;
   border-radius: 0.5rem;
@@ -155,7 +165,7 @@ nav li:hover .submenu {
     top: 100%;
     left: 0;
     width: 100%; /* Gær sådan at menuen dækker hele screen. */
-    background-color: var(--primary);
+    background-color: var(--dark-2);
     opacity: 0;
   }
 

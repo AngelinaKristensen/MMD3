@@ -61,7 +61,7 @@ import instagramIcon from "@/assets/Icons/instagramIcon.svg";
 
 <style scoped>
 .footer-container {
-    background-color: var(--primary);
+    background-color: var(--dark-2);
 }
 
 .footer {
