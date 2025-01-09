@@ -36,8 +36,6 @@
   font-weight: normal;
 }
 
-
-/* Desktop stylings */
 body {
   color: var(--color-text);
   background: var(--color-background);
@@ -47,18 +45,347 @@ body {
 
 h1{
   font-family: var(--font-header);
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 h2{
   font-family: var(--font-header);
-  font-size: 3rem;
+  font-size: 1.75rem;
   font-weight: 700;
 }
 
 h3{
   font-family: var(--font-header);
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p{
+  font-size: 1rem;
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+@media (min-width: 1000px) {
+  h1{
+    font-family: var(--font-header);
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  
+  h2{
+    font-family: var(--font-header);
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  h3{
+    font-family: var(--font-header);
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  
+}
+
+.btnstyle{
+  background-color: var(--CTA);
+  color: var(--light);
+  border: none;
+  padding: 6px 34px;
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  border-radius: 5px;
+  transition: 10ms;
+}
+.btnstyle:hover{
+  background-color: #00A57A;
+}
+.btn{
+  margin: 48px 0px;
+}
+
+
+
+#spinner{
+  top: 200px;
+  position: absolute;
+  width: 17%;
+  animation: rotate 1.5s ease-out infinite;
+}
+
+.stopspinning{
+  display: none;
+}
+
+
+@keyframes rotate {
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}
+
+
+button:hover{
+  cursor: pointer;
 }

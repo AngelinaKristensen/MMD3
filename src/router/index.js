@@ -9,6 +9,7 @@ import ValuesView from '@/views/ValuesView.vue'
 import EventsView from '@/views/EventsView.vue'
 import ContactView from '@/views/ContactView.vue'
 import GalleriView from '@/views/GalleriView.vue'
+import Beer from '@/views/Beer.vue'
 
 // const router = createRouter({
 //   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -79,6 +80,11 @@ const routes = [
     path: "/Galleri",
     name: "galleri",
     component: GalleriView
+  },
+  {
+    path: "/Beer",
+    name: "Oel",
+    component: Beer
   },
 ];
 
