@@ -55,6 +55,12 @@ const toggleMenu = () => {
 </template>
 
 <style scoped>
+li:hover{
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  transition: 300ms;
+  color: white
+}
 /* Basic Styles */
 nav {
   background-color: var(--dark-2);
