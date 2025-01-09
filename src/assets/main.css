@@ -36,8 +36,6 @@
   font-weight: normal;
 }
 
-
-/* Desktop stylings */
 body {
   color: var(--color-text);
   background: var(--color-background);
@@ -47,20 +45,20 @@ body {
 
 h1{
   font-family: var(--font-header);
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 h2{
   font-family: var(--font-header);
-  font-size: 3rem;
+  font-size: 1.75rem;
   font-weight: 700;
   padding-bottom: 1rem;
 }
 
 h3{
   font-family: var(--font-header);
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -88,5 +86,4 @@ p{
     font-size: 1.125rem; 
   }
 }
-
 
